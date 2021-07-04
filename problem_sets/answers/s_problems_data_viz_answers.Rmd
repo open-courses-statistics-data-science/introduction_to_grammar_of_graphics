@@ -3,11 +3,7 @@ title: "Problem sheet: data visualisation"
 output: html_notebook
 ---
 
-This question is more open ended and invites you to graphically investigate the full suicide trends data (I only showed a portion of this in class). Questions that could be investigated include:
-
-- What are the overall trends in suicide counts / per capita?
-- How do these vary according to country, region and age group?
-- Is there any link between suicide trends and GDP per capita?
+In this problem set, we are going to visualise a dataset from Gapminder, which contains data on life expectancy, GDP per capita and population by country.
 
 ```{r}
 rm(list=ls())
