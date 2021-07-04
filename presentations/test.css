@@ -1,0 +1,22 @@
+.reveal section img {
+  margin: 15px 0px;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  box-shadow: none; 
+  }
+  
+  html.dimbg .slide-background {
+    opacity: 0.2 !important;
+}
+
+
+body{
+background-image: url(oxford-logo1.png);
+background-size: 20%, 
+20%;
+    background-repeat: no-repeat, 
+    no-repeat;
+    background-position: bottom right, 
+    bottom left;
+  
+}

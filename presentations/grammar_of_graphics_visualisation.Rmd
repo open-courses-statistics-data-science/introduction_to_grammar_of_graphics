@@ -10,31 +10,6 @@ output:
     css: ['test.css','bootstrap.css','bootstrap-grid.css','bootstrap-reboot.min.css','bootstrap-grid.min.css','bootstrap.min.css','bootstrap-reboot.css']
 ---
 
-## Plan for next two days
-
-Today:
-
-- 9.30am-10.15am: scalable data visualisation lecture
-- 2pm-3pm: introduction to unsupervised learning lecture
-
-Friday:
-
-- 9.30am-10.30am: a survey of supervised ML methods
-- 2pm-2.45pm: supervised ML in practice
-
-## Problem set material
-
-- apart from the data viz lecture, the material is largely conceptual
-- problem sets should be doable in R (the language I use) and Python
-- for many questions, only base language functionality needed
-- but for the applied problems, mostly in the last problem set, ML packages are needed: in R, I use Caret for ML; in Python, ML problems are probably best handled in Scikit-Learn
-
-## Getting help
-
-- I'll be online all day in a Zoom breakout room
-- breakout rooms for all demonstrators
-- separate breakout rooms also created for students, if they want to work in pairs/groups
-
 # Scalable data visualisation via grammar of graphics
 
 ## Grammar of graphics
