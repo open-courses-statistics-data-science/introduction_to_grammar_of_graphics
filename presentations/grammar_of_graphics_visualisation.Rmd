@@ -7,7 +7,7 @@ output:
     theme: white
     highlight: pygments
     center: true
-    css: ['test.css','bootstrap.css','bootstrap-grid.css','bootstrap-reboot.min.css','bootstrap-grid.min.css','bootstrap.min.css','bootstrap-reboot.css']
+    css: ['test.css','bootstrap.css']
 ---
 
 # Scalable data visualisation via grammar of graphics
@@ -15,11 +15,11 @@ output:
 ## Grammar of graphics
 - single framework that easily generalises to larger sets of variables with complex hierarchies
 - framework for a huge variety of graphics
-- agile data exploration of data and creation of coherent graphics
+- agile exploration of data and creation of coherent graphics
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE)
 library(tidyverse)
 ```
 
@@ -60,13 +60,13 @@ kable(df[1:100, ],format="html",escape = F, col.names = colnames(df)) %>%
 
 # Comparing traditional and GG way
 ## Standard way
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 plot(df$population, df$suicides_no)
 ```
 
 
 ## Plotting with ggplot / plotnine
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=population, y=suicides_no)) +
   geom_point()
 ```
@@ -87,20 +87,20 @@ kable(df_wide[1:100, ],format="html",
 ```
 
 ## Traditional: plot data separately for each subpopulation
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 plot(df_wide$population_male, df_wide$suicides_no_male, col="red")
 points(df_wide$population_female, df_wide$suicides_no_female, col="blue")
 ```
 
 ## GG way uses long format
-```{r, echo = FALSE, warning=FALSE, message=FALSE}
+```{r, echo = FALSE, warning=FALSE, message=FALSE, out.width = "560px"}
 kable(df[1:100, ],format="html",escape = F, col.names = colnames(df)) %>% 
   kable_styling() %>%
   kableExtra::scroll_box(width = "100%", height = "400px")
 ```
 
 ## GG: associate extra aesthetic ("colour") to data points
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=population, y=suicides_no, colour=sex)) +
   geom_point()
 ```
@@ -118,25 +118,25 @@ ggplot(df, aes(x=population, y=suicides_no, colour=sex)) +
 - geoms (see later) control how aesthetics are displayed
 
 ## Colour by country: traditionally annoying
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=population, y=suicides_no, colour=country)) +
   geom_point()
 ```
 
 ## Shape by country: traditionally annoying
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=population, y=suicides_no, shape=country)) +
   geom_point()
 ```
 
 ## Regressions by country
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=population, y=suicides_no, colour=country)) +
   geom_point(alpha=0.3) + geom_smooth(method="lm", se=F)
 ```
 
 ## Overall regression
-```{r, out.width = "600px"}
+```{r, out.width = "560px", warning=FALSE, message=FALSE}
 ggplot(df, aes(x=population, y=suicides_no)) +
   geom_point(alpha=0.3, aes(colour=country)) +
   geom_smooth(method="lm", se=F, colour="black")
@@ -161,56 +161,56 @@ kable(data_df,format="html",
   kableExtra::scroll_box(width = "100%", height = "400px")
 ```
 ## point
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(data_df, aes(x, y, label = label)) +
   theme(text=element_text(size=14)) +
   geom_point()
 ```
 
 ## text
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(data_df, aes(x, y, label = label)) +
   theme(text=element_text(size=14)) +
   geom_text(size=18)
 ```
 
 ## col
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(data_df, aes(x, y, label = label)) +
   theme(text=element_text(size=14)) +
   geom_col()
 ```
 
 ## line
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(data_df, aes(x, y, label = label)) +
   theme(text=element_text(size=14)) +
   geom_line()
 ```
 
 ## line and points
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(data_df, aes(x, y, label = label)) +
   theme(text=element_text(size=14)) +
   geom_line() + geom_point()
 ```
 
 ## line and jittered points
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(data_df, aes(x, y, label = label)) +
   theme(text=element_text(size=14)) +
   geom_line() + geom_jitter()
 ```
 
 ## regression line and jitter
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(data_df, aes(x, y, label = label)) +
   theme(text=element_text(size=14)) +
   geom_smooth(method="lm", se=F, formula = y~x) + geom_jitter()
 ```
 
 ## polygon
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(data_df, aes(x, y, label = label)) +
   theme(text=element_text(size=14)) +
   geom_polygon()
@@ -220,21 +220,21 @@ ggplot(data_df, aes(x, y, label = label)) +
 ## Mini-breather: any questions?
 
 ## Order of layering
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=population, y=suicides_no)) +
   geom_point(alpha=1, aes(colour=country)) +
   geom_smooth(method="lm", se=F, colour="black")
 ```
 
 ## Order of layering
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=population, y=suicides_no)) +
   geom_smooth(method="lm", se=F, colour="black") +
   geom_point(alpha=1, aes(colour=country))
 ```
 
 ## Change axis scales
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=population, y=suicides_no)) +
   geom_point(alpha=0.3, aes(colour=country)) + scale_x_sqrt() + scale_y_sqrt()
 ```
@@ -242,33 +242,33 @@ ggplot(df, aes(x=population, y=suicides_no)) +
 # What has happened to suicide trends over time?
 
 ## Overall trends over time
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=year, y=suicides_no)) +
   geom_point(alpha=0.3)
 ```
 
 ## Boxplots
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=as.factor(year), y=suicides_no)) +
   geom_boxplot()
 ```
 
 ## Boxplots flipped
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=as.factor(year), y=suicides_no)) +
   geom_boxplot() +
   coord_flip()
 ```
 
 ## Trends by country
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=as.factor(year), y=suicides_no, fill=country)) +
   geom_boxplot() + 
   coord_flip()
 ```
 
 ## Separate by age group
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=year, y=suicides_no, colour=country, shape=age)) +
   geom_point(alpha=0.8)
 ```
@@ -279,19 +279,19 @@ ggplot(df, aes(x=year, y=suicides_no, colour=country, shape=age)) +
 - each facet represents a plot of a subset of your data
 
 ## Facet by country
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=year, y=suicides_no, shape=age)) +
   geom_point() + facet_wrap(~country)
 ```
 
 ## Separate panel for age and country
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=year, y=suicides_no)) +
   geom_point() + facet_grid(vars(country), vars(age), scales="free")
 ```
 
 ## Add in sex
-```{r, out.width = "600px"}
+```{r, out.width = "560px"}
 ggplot(df, aes(x=year, y=suicides_no, colour=sex)) +
   geom_point() + facet_grid(vars(country), vars(age), scales="free")
 ```
