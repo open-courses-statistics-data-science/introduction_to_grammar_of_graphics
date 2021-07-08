@@ -3,11 +3,23 @@ title: "Problem sheet: data visualisation"
 output: html_notebook
 ---
 
-In this problem set, we are going to visualise a dataset from Gapminder, which contains data on life expectancy, GDP per capita and population by country.
+In this problem set, we are going to visualise a dataset from Gapminder, which contains data on life expectancy, GDP per capita and population by country. For more information, see http://www.gapminder.org/data/.
 
 ```{r}
 rm(list=ls())
 library(tidyverse)
 library(reshape2)
+library(gapminder)
+```
+
+Load the `gapminder.csv` data
+- note, in Python, import the data using pandas
+```{r}
+gapminder <- read.csv("../data/gapminder.csv")
+```
+
+Examine the first 10 rows of your dataset
+```{r}
+head(gapminder)
 ```
 
