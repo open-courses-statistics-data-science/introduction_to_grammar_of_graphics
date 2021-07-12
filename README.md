@@ -9,6 +9,8 @@ The course consists of a short [lecture](https://htmlpreview.github.io/?https://
 
 The exercise within the [problem set](./problem_sets/gapminder.ipynb) invites participants to visualise [gapminder data](./problem_sets/data/gapminder.csv). Answers to this problem set (written in Python) are available [here](./problem_sets/answers/gapminder.ipynb).
 
+## References
+
 The best reference for this course is the ggplot2 book by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen which is [freely available online](https://ggplot2-book.org/). The whole book is great (and not that long). But, I'd especially recommend the following chapters for someone new to ggplot:
 
 - [introduction](https://ggplot2-book.org/introduction.html)
