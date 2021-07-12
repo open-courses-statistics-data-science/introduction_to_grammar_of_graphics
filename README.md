@@ -9,8 +9,7 @@ The course consists of a short [lecture](https://htmlpreview.github.io/?https://
 
 The exercise within the [problem set](./problem_sets/gapminder.ipynb) invites participants to visualise [gapminder data](./problem_sets/data/gapminder.csv). Answers to this problem set (written in Python) are available [here](./problem_sets/answers/gapminder.ipynb).
 
-
-## Pre-requisites
+## Prerequisites
 The course doesn't really have any! I give two really simple "base R" plots in the lecture, but these types of plots are very similar in other languages, like Python or Matlab. All that you need is an interest in plotting data.
 
 ## References
