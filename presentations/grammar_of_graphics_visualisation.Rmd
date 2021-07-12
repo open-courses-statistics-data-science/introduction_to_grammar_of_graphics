@@ -35,8 +35,8 @@ library(tidyverse)
 
 ## What is it then?
 
-- Personal view on why grammar of graphics dominates for most datasets
-- Attempt to entice people to find out more for themselves
+- personal view on why grammar of graphics dominates for most datasets
+- attempt to entice people to find out more for themselves
 
 ## Why don't more people use it?
 
@@ -49,8 +49,8 @@ In my experience, people:
 
 ## Course structure
 
-- Short lectures
-- Problem set: answers in R and Python
+- short lectures
+- problem set: answers in R and Python (see Github link)
 
 ## Suicide rates: 1985 to 2016
 ```{r, echo = FALSE, warning=FALSE, message=FALSE}
@@ -127,7 +127,7 @@ ggplot(df, aes(x=population, y=suicides_no, colour=sex)) +
   geom_point()
 ```
 
-# Agile data visualisation with GG
+# Aesthetics and geoms
 ## Plots operate on aesthetic mappings
 `aes(x=population, y=suicides_no, colour=sex)`
 

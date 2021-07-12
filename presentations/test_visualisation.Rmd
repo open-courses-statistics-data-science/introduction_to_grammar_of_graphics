@@ -20,6 +20,9 @@ library(tidyverse)
 
 ---
 
+## link test
+- problem set: https://github.com/ben18785/introduction_to_grammar_of_graphics
+
 ## Suicide rates: 1985 to 2016
 ```{r, echo = FALSE, warning=FALSE, message=FALSE}
 library(kableExtra)
