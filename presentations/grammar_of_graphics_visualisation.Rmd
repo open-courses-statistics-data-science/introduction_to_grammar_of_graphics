@@ -1,5 +1,5 @@
 ---
-title: "Scalable data visualisation"
+title: "Scalable data visualisation via grammar of graphics"
 author: | 
   | Ben Lambert
 output:
@@ -7,10 +7,8 @@ output:
     theme: white
     highlight: pygments
     center: true
-    css: ['test.css','bootstrap.css']
+    css: ['css/test.css','css/bootstrap.css']
 ---
-
-# Scalable data visualisation via grammar of graphics
 
 ## Grammar of graphics
 - single framework that easily generalises to larger sets of variables with complex hierarchies
@@ -28,8 +26,31 @@ library(tidyverse)
 ## Popular GG package in R and Python
 
 ```{r, echo = FALSE, out.width = "400px",include=T,fig.align="center"} 
-  knitr::include_graphics("ggplot2.jpg")
+  knitr::include_graphics("figures/ggplot2.jpg")
 ```
+
+## What this course is not
+
+<img src="https://ggplot2-book.org/cover.jpg" alt="drawing" width="300"/>
+
+## What is it then?
+
+- Personal view on why grammar of graphics dominates for most datasets
+- Attempt to entice people to find out more for themselves
+
+## Why don't more people use it?
+
+In my experience, people:
+
+- lack exposure to it
+- find the syntax confusing and "overly complex"
+- don't see the benefits over "traditional" data plotting
+- are busy
+
+## Course structure
+
+- Short lectures
+- Problem set: answers in R and Python
 
 ## Suicide rates: 1985 to 2016
 ```{r, echo = FALSE, warning=FALSE, message=FALSE}
@@ -50,7 +71,8 @@ df_sum <- df %>%
 df_sum <- df_sum[c(10:10, 40:41, 98:99), ]
 countries <- df_sum$country
 df <- df %>% 
-  filter(country %in% countries)
+  filter(country %in% countries) %>% 
+  select(country, year, age, sex, suicides_no, population)
 # df <- df %>% 
 #   select(country, year, age, suicides_no, population)
 kable(df[1:100, ],format="html",escape = F, col.names = colnames(df)) %>% 
@@ -82,7 +104,7 @@ df_wide <- df %>%
               id_cols = c("country", "year", "age"))
 kable(df_wide[1:100, ],format="html",
       escape = F, col.names = colnames(df_wide)) %>% 
-  kable_styling() %>%
+  kable_styling(font_size=16) %>%
   kableExtra::scroll_box(width = "100%", height = "400px")
 ```
 
@@ -216,9 +238,6 @@ ggplot(data_df, aes(x, y, label = label)) +
   geom_polygon()
 ```
 
-
-## Mini-breather: any questions?
-
 ## Order of layering
 ```{r, out.width = "560px"}
 ggplot(df, aes(x=population, y=suicides_no)) +
@@ -236,7 +255,8 @@ ggplot(df, aes(x=population, y=suicides_no)) +
 ## Change axis scales
 ```{r, out.width = "560px"}
 ggplot(df, aes(x=population, y=suicides_no)) +
-  geom_point(alpha=0.3, aes(colour=country)) + scale_x_sqrt() + scale_y_sqrt()
+  geom_point(alpha=0.3, aes(colour=country)) +
+  scale_x_sqrt() + scale_y_sqrt()
 ```
 
 # What has happened to suicide trends over time?
@@ -284,7 +304,7 @@ ggplot(df, aes(x=year, y=suicides_no, shape=age)) +
   geom_point() + facet_wrap(~country)
 ```
 
-## Separate panel for age and country
+## Age and country panels
 ```{r, out.width = "560px"}
 ggplot(df, aes(x=year, y=suicides_no)) +
   geom_point() + facet_grid(vars(country), vars(age), scales="free")
@@ -324,5 +344,4 @@ ggplot(df, aes(x=year, y=suicides_no, colour=sex)) +
 
 ## Where to learn more
 
-- "ggplot2" free online book by Hadley Wickham
-- "R for data science" free online book by Hadley Wickham
+<img src="https://ggplot2-book.org/cover.jpg" alt="drawing" width="300"/>

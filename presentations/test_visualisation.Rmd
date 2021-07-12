@@ -1,0 +1,64 @@
+---
+title: "Scalable data visualisation"
+author: | 
+  | Ben Lambert
+output:
+  revealjs::revealjs_presentation:
+    theme: white
+    highlight: pygments
+    center: true
+    css: ['css/test.css']
+---
+
+# Scalable data visualisation via grammar of graphics
+
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE)
+library(tidyverse)
+```
+
+---
+
+## Suicide rates: 1985 to 2016
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(kableExtra)
+df <- read.csv("data/master.csv") %>% 
+  mutate(age=fct_relevel(age,
+                         "5-14 years",
+                         "15-24 years",
+                         "25-34 years",
+                         "35-54 years",
+                         "55-74 years",
+                         "75+ years"))
+df_sum <- df %>% 
+  group_by(country) %>% 
+  summarise(suicides.100k.pop=mean(suicides.100k.pop)) %>% 
+  arrange(suicides.100k.pop) %>% 
+  filter(suicides.100k.pop > 0)
+df_sum <- df_sum[c(10:10, 40:41, 98:99), ]
+countries <- df_sum$country
+df <- df %>% 
+  filter(country %in% countries)
+# df <- df %>% 
+#   select(country, year, age, suicides_no, population)
+df_wide <- df %>% 
+  select(country, year, age, sex, suicides_no, population) %>% 
+  pivot_wider(values_from = c("population", "suicides_no"),
+              names_from = "sex",
+              id_cols = c("country", "year", "age"))
+kable(df_wide[1:100, ],format="html",
+      escape = F, col.names = colnames(df_wide)) %>% 
+  kable_styling(font_size=16) %>%
+  kableExtra::scroll_box(width = "100%", height = "400px")
+```
+
+## What this course is not
+
+<img src="https://ggplot2-book.org/cover.jpg" alt="drawing" width="200"/>
+
+## GG: associate extra aesthetic ("colour") to data points
+```{r, out.width = "560px"}
+ggplot(df, aes(x=population, y=suicides_no, colour=sex)) +
+  geom_point()
+```
