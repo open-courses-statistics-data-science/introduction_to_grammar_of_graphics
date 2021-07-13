@@ -1,4 +1,4 @@
-# Introduction to scalable visualisation using the grammar of graphics paradigm
+# A short introduction to grammar of graphics (via ggplot2)
 This course provides a half day introduction to visualisation in R and Python using the grammar of graphics approach. In the course, participants will learn:
 
 - how the traditional approach to visualisation differs to the grammar of graphics one
