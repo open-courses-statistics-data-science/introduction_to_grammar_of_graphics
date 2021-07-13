@@ -13,6 +13,8 @@ The exercise within the [problem set](./problem_sets/gapminder.ipynb) invites pa
 The course doesn't really have any! I give two really simple "base R" plots in the lecture, but these types of plots are very similar in other languages, like Python or Matlab. All that you need is an interest in plotting data.
 
 ## References
+This course is not meant to be a comprehensive introduction to grammar of graphics, nor ggplot2. Rather, it is meant to illustrate the benefits of this approach. As such, I recommend the following references.
+
 The best reference for this course is the ggplot2 book by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen which is [freely available online](https://ggplot2-book.org/). The whole book is great (and not that long). But, I'd especially recommend the following chapters for someone new to ggplot:
 
 - [introduction](https://ggplot2-book.org/introduction.html)
