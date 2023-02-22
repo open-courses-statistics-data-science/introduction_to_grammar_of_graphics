@@ -345,3 +345,15 @@ ggplot(df, aes(x=year, y=suicides_no, colour=sex)) +
 ## Where to learn more
 
 <img src="https://ggplot2-book.org/cover.jpg" alt="drawing" width="300"/>
+
+## Cheatsheet 1
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE, out.width = "700px"}
+knitr::include_graphics("figures/data-visualization-1.png")
+```
+
+## Cheatsheet 2
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE, out.width = "700px"}
+knitr::include_graphics("figures/data-visualization-2.png")
+```
